@@ -22,3 +22,6 @@ class Location(BaseModel):
 class Request(BaseModel):
     phone_number:str
     otp: str
+
+class PhoneNumberRequest(BaseModel):
+    phone_number: str

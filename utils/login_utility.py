@@ -5,7 +5,7 @@ from firebase_admin.auth import UserNotFoundError
 def get_user_token(phone_number):
     try:
         user = auth.get_user_by_phone_number(phone_number=phone_number)
-        return user.uid
+        return auth.create_custom_token(user.uid)
     except UserNotFoundError :
         user = auth.create_user(phone_number=phone_number)
         return auth.create_custom_token(user.uid)

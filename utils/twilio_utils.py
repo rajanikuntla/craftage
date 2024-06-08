@@ -9,6 +9,7 @@ client = Client(account_sid, auth_token)
 
 def send_otp(phone_number):
     try:
+        print("phone ---", phone_number)
         verification = client.verify.services(service_sid).verifications.create(to=phone_number, channel='sms')
         return verification.status
     except Exception as e:

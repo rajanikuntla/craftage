@@ -10,6 +10,8 @@ from sqlalchemy import (
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
+from sqlalchemy_serializer import SerializerMixin
+
 
 class Base(object):
     """Base class for all SQLAlchemy models"""
@@ -21,7 +23,7 @@ class Base(object):
 Base = declarative_base(cls=Base)
 
 
-class Categories(Base):
+class Categories(Base, SerializerMixin):
     """
     Class representing Categories data.
     """
@@ -35,7 +37,7 @@ class Categories(Base):
     def __repr__(self):
         return f"Category({self.category_id},{self.name},{self.image_location})"
 
-class Items(Base):
+class Items(Base, SerializerMixin):
     """
     Class representing Items data.
     """
